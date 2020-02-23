@@ -85,8 +85,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://diamond-link-conglomerates.com">DLC</a>
-                    <a href="https://github.com/Nnouka/jwtauthserver">GitHub</a>
+                    <a href="https://diamond-link-conglomerates.com" target="_blank">DLC</a>
+                    <a href="https://github.com/Nnouka/jwtauthserver" target="_blank">GitHub</a>
                 </div>
             </div>
         </div>
