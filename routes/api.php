@@ -66,3 +66,12 @@ Route::prefix('protected/client')->middleware('client.auth')->group(function () 
         'as' => 'client.update'
     ]);
 });
+
+Route::prefix('protected/user')->middleware('client.auth')->group(function () {
+
+    Route::post('register', [
+        'uses' => 'UserController@register',
+        'as' => 'user.register'
+    ]);
+
+});
