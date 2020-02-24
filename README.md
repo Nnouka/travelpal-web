@@ -156,10 +156,33 @@ Expected Success Response:
 Uri: GET
 
     '/api/protected/token/test'
+## Generate a user token
 
+Uri: POST
+    
+    '/api/protected/token'
+
+Sample Request
+    
+    {
+       "email": "jenifer@nouks.com",
+       "password": "12345678"
+    }
+
+Expected Response
+
+    {
+        "header": "Authorization",
+        "issuer": "Jwt AuthServer",
+        "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWwiOiJqZW5pZmVyQG5vdWtzLmNvbSIsInJvbCI6WyJVU0VSIl0sIm5hbSI6IkphbmlmZXIiLCJpYXQiOjE1ODI1NzQzMTcsImV4cCI6MTU4MjU3NzkxNywiYXVkIjoiTXkgQXBwIDMiLCJ1aWQiOjMyfQ.bGVlVnNESVhSOGhmaXBCSHlHamJsaEdRUERfTGtsdVJNZ0sxMnR2T01oWQ",
+        "type": "Bearer",
+        "expiresAt": 1582577917
+    }
+    
+        
 
 ## Not Advisable to Delete App
 
-## Use App Key to sign our tokens
+## Use App Key to sign your tokens
 
 ## [Live sample server](https://mg-jwtauthserver.herokuapp.com)

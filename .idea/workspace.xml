@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3d0a4bf-550a-428f-b11a-b12910d10491" name="Default" comment="Generate a test token. Closes #6">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/CustomObjects/Dtos/UserResponseDto.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Role.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2020_02_24_181353_create_roles_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2020_02_24_181704_create_role_user_table.php" />
+    <list default="true" id="f3d0a4bf-550a-428f-b11a-b12910d10491" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/JwtController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/JwtController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/AuthService.php" afterPath="$PROJECT_DIR$/app/Services/AuthService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/JwtService.php" afterPath="$PROJECT_DIR$/app/Services/JwtService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/UserService.php" afterPath="$PROJECT_DIR$/app/Services/UserService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Utils/Jwt.php" afterPath="$PROJECT_DIR$/app/Utils/Jwt.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,18 +21,6 @@
             <state relative-caret-position="508">
               <caret line="88" column="7" lean-forward="false" selection-start-line="88" selection-start-column="7" selection-end-line="88" selection-end-column="7" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JwtDto.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/CustomObjects/Dtos/JwtDto.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="133" column="10" lean-forward="false" selection-start-line="133" selection-start-column="10" selection-end-line="133" selection-end-column="10" />
-              <folding>
-                <element signature="e#6#86#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -79,15 +57,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JwtService.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JwtService.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Services/JwtService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="78" column="58" lean-forward="false" selection-start-line="78" selection-start-column="58" selection-end-line="78" selection-end-column="58" />
+            <state relative-caret-position="363">
+              <caret line="99" column="19" lean-forward="true" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
               <folding>
                 <element signature="e#6#86#0#PHP" expanded="true" />
                 <element signature="e#114#148#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="332">
+                <caret line="181" column="0" lean-forward="true" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -169,7 +160,6 @@
         <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/app/Utils/Base64.php" />
         <option value="$PROJECT_DIR$/app/CustomObjects/Dtos/JwtDto.php" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/Utils/Jwt.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_02_24_181353_create_roles_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_02_24_181704_create_role_user_table.php" />
@@ -181,6 +171,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/JwtController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Services/JwtService.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -545,7 +536,7 @@
       <updated>1582289678872</updated>
       <workItem from="1582289680382" duration="44008000" />
       <workItem from="1582428466325" duration="6839000" />
-      <workItem from="1582553927938" duration="13702000" />
+      <workItem from="1582553927938" duration="14564000" />
     </task>
     <task id="LOCAL-00001" summary="update readme">
       <created>1582290085110</created>
@@ -680,11 +671,18 @@
       <option name="project" value="LOCAL" />
       <updated>1582565462549</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Create Role model and migration. Closes #7">
+      <created>1582573208118</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1582573208118</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64549000" />
+    <option name="totallyTimeSpent" value="65411000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -728,7 +726,8 @@
     <MESSAGE value="Create Base64 class for encoding and decoding strings. Closes #4" />
     <MESSAGE value="Create Jwt Util class. Closes #5" />
     <MESSAGE value="Generate a test token. Closes #6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Generate a test token. Closes #6" />
+    <MESSAGE value="Create Role model and migration. Closes #7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Role model and migration. Closes #7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1046,17 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="502">
-            <caret line="159" column="0" lean-forward="true" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/CustomObjects/Dtos/JwtDto.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
@@ -1163,12 +1151,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/JwtService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="78" column="58" lean-forward="false" selection-start-line="78" selection-start-column="58" selection-end-line="78" selection-end-column="58" />
+        <state relative-caret-position="363">
+          <caret line="99" column="19" lean-forward="true" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
           <folding>
             <element signature="e#6#86#0#PHP" expanded="true" />
             <element signature="e#114#148#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="332">
+            <caret line="181" column="0" lean-forward="true" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
