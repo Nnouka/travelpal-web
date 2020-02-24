@@ -153,3 +153,5 @@ Expected Success Response:
 ## Not Advisable to Delete App
 
 ## Use App Key to sign our tokens
+
+## [Live sample server](https://mg-jwtauthserver.herokuapp.com)
