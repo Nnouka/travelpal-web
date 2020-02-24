@@ -84,8 +84,3 @@ Route::prefix('protected/token')->middleware('client.auth')->group(function () {
     ]);
 
 });
-
-Route::get('token/test', [
-    'uses' => 'JwtController@test',
-    'as' => 'jwt.test'
-]);

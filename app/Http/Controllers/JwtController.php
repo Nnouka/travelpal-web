@@ -17,7 +17,7 @@ class JwtController extends Controller
         $this->jwtService = new JwtService();
     }
 
-    public function test() {
-        return $this->jwtService->generateTest();
+    public function test(Request $request) {
+        return $this->jwtService->generateTest($request);
     }
 }

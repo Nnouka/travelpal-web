@@ -15,7 +15,8 @@ use App\Utils\Jwt;
 class JwtService
 {
 
-    public function generateTest() {
+    public function generateTest($request) {
+        $client = AuthService::get();
         // set type
         Jwt::setHeaderClaim("typ", "JWT");
         // set algorithm
@@ -39,7 +40,7 @@ class JwtService
         // encode
         Jwt::jsonEncode();
         // sign
-        Jwt::sign("secret");
+        Jwt::sign($client->app_key);
         return new JwtDto(
             "Authorization",
             "Jwt AuthServer",
