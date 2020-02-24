@@ -110,7 +110,7 @@ class Jwt
     public static function sign($secret) {
         self::$signature = Base64::urlEncode(hash_hmac('sha256',
             Base64::urlEncode(self::$encodedHeader).".".Base64::urlEncode(self::$encodedPayload),
-            $secret, true));
+            Base64::urlEncode($secret), true));
     }
     public static function generate() {
         return Base64::urlEncode(self::$encodedHeader).".".Base64::urlEncode(self::$encodedPayload).".".self::$signature;

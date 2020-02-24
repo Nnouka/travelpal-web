@@ -150,6 +150,14 @@ Expected Success Response:
         "app_key": "igZh5kKbH6YKAYdzqjmb3iL6qvkHkg4i",
         "id": 3
     } 
+    
+## Get a test Token here
+
+Uri: GET
+
+    '/api/protected/token/test'
+
+
 ## Not Advisable to Delete App
 
 ## Use App Key to sign our tokens

@@ -15,7 +15,7 @@ use App\Utils\Jwt;
 class JwtService
 {
 
-    public function generateTest($request) {
+    public function generateTest() {
         $client = AuthService::get();
         // set type
         Jwt::setHeaderClaim("typ", "JWT");
