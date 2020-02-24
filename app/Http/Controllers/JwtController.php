@@ -20,4 +20,12 @@ class JwtController extends Controller
     public function test() {
         return $this->jwtService->generateTest();
     }
+
+    public function generate(Request $request) {
+        return $this->jwtService->generate(
+            $request->input('email'),
+            $request->input('password'),
+            $request->getRequestUri()
+        );
+    }
 }

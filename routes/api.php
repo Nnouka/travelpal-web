@@ -83,4 +83,9 @@ Route::prefix('protected/token')->middleware('client.auth')->group(function () {
         'as' => 'jwt.test'
     ]);
 
+    Route::post('/', [
+        'uses' => 'JwtController@generate',
+        'as' => 'jwt.generate'
+    ]);
+
 });

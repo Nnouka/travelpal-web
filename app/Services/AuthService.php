@@ -12,6 +12,7 @@ namespace App\Services;
 use App\CustomObjects\HttpStatus;
 use App\Exceptions\ApiException;
 use App\OauthClient;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -20,6 +21,7 @@ use PHPUnit\Exception;
 class AuthService
 {
     private static $auth;
+    private static $authUser;
     public static function check(Request $request) {
         $header_str = $request->header("X-Api-Auth", '');
         // get the header string expect a string formatted as Basic clientId:clientSecret
@@ -52,5 +54,23 @@ class AuthService
 
     public static function get() {
         return self::$auth;
+    }
+
+    public static function authUserCheck($email, $password) {
+        $user = User::where('email', $email)->get()->first();
+        if ($user !== null) {
+            if (Hash::check($password, $user->password)) {
+                self::$authUser = $user;
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public static function authUserGet() {
+        return self::$authUser;
     }
 }
