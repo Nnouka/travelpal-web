@@ -113,7 +113,7 @@ class Jwt
             $secret, true));
     }
     public static function generate() {
-        return self::$encodedHeader.".".self::$encodedPayload.".".self::$signature;
+        return Base64::urlEncode(self::$encodedHeader).".".Base64::urlEncode(self::$encodedPayload).".".self::$signature;
     }
 
 }
