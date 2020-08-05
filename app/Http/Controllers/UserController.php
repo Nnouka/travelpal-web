@@ -10,6 +10,8 @@ namespace App\Http\Controllers;
 
 
 use App\CustomObjects\Dtos\RegisterUserDto;
+use App\CustomObjects\Dtos\UserDetailsResponseDto;
+use App\Services\AuthService;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 
@@ -32,5 +34,15 @@ class UserController extends Controller
             $request->input('email')
         );
         return $this->userService->register($userDto);
+    }
+
+    public function getDetails(Request $request) {
+        $auth = AuthService::getClaims();
+        return new UserDetailsResponseDto(
+            $auth["userId"],
+            $auth["fullName"],
+            $auth["email"],
+            $auth["roles"]
+        );
     }
 }

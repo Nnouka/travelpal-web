@@ -26,14 +26,14 @@ class UserService
             return ApiException::report("email already in use",
                 HttpStatus::HTTP_CONFLICT, $userDto->getEndpoint());
         }
-
         $user = User::create([
             "email" => $userDto->getEmail(),
             "password" => $userDto->getEncryptedPassword(),
             "name" => $userDto->getFullName()
         ]);
         $role = Role::where('name', 'USER')->get()->first();
-        if ($role !== []) {
+
+        if ($role !== null && $role !== []) {
             $user->roles()->attach($role->id);
         }
         // prepare roles array

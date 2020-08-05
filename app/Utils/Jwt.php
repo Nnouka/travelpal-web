@@ -116,4 +116,5 @@ class Jwt
         return Base64::urlEncode(self::$encodedHeader).".".Base64::urlEncode(self::$encodedPayload).".".Base64::urlEncode(self::$signature);
     }
 
+
 }
