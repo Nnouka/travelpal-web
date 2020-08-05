@@ -31,6 +31,16 @@ class JwtTokenFilter
         return self::$payload->aud == self::$client->client_id && self::checkNonExpiration() && self::checkSignature();
     }
 
+    public static function checkIfRefresh($token) {
+        self::decodeFields($token);
+        if (self::$client == null || self::$payload == null) return false;
+        try {
+            return self::$payload->jti != null;
+        } catch (\Exception $exception) {
+            return false;
+        }
+    }
+
     public static function getClaims($token) {
         self::decodeFields($token);
         $claims = self::$payload;
@@ -75,6 +85,15 @@ class JwtTokenFilter
         return !(Carbon::now()->diffInSeconds($expiration, false) < 0);
     }
 
+    private static function checkRefreshNonExpiration() {
+        if (self::$payload == null) return false;
+        try {
+            $expiration = Carbon::createFromTimestamp(self::$payload->exp);
+            return !(Carbon::now()->diffInSeconds($expiration, false) < 0);
+        } catch (\Exception $exception) {
+            return false;
+        }
+    }
 
     private static function getAlg($alg) {
         switch ($alg) {

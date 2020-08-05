@@ -24,6 +24,7 @@ class AuthService
     private static $auth;
     private static $authUser;
     private static $claims;
+    private static $token;
 
     public static function validateJwt(Request $request) {
         $header_str = $request->header("Authorization", '');
@@ -31,6 +32,8 @@ class AuthService
             return false;
         } else {
             $token = trim(str_replace('Bearer', '', $header_str));
+            $isRefresh = JwtTokenFilter::checkIfRefresh($token);
+            if ($isRefresh) return false;
             $valid = JwtTokenFilter::checkValidity($token);
             if ($valid) self::$claims = JwtTokenFilter::getClaims($token);
             return $valid;

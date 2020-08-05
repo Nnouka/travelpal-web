@@ -92,6 +92,11 @@ Route::prefix('protected/token')->middleware('client.auth')->group(function () {
         'as' => 'jwt.generate'
     ]);
 
+    Route::post('/refresh', [
+        'uses' => 'JwtController@refresh',
+        'as' => 'jwt.refresh'
+    ]);
+
 });
 
 Route::prefix('protected/user')->middleware('client.auth')->group(function () {

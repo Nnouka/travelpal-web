@@ -19,6 +19,7 @@ class JwtDto implements Jsonable
     private $accessToken;
     private $type;
     private $expiresAt;
+    private $refreshToken;
 
     /**
      * JwtDto constructor.
@@ -28,11 +29,12 @@ class JwtDto implements Jsonable
      * @param $type
      * @param $expiresAt
      */
-    public function __construct($header, $issuer, $accessToken, $type, $expiresAt)
+    public function __construct($header, $issuer, $accessToken, $refreshToken, $type, $expiresAt)
     {
         $this->header = $header;
         $this->issuer = $issuer;
         $this->accessToken = $accessToken;
+        $this->refreshToken = $refreshToken;
         $this->type = $type;
         $this->expiresAt = $expiresAt;
     }
@@ -118,6 +120,23 @@ class JwtDto implements Jsonable
     }
 
     /**
+     * @return mixed
+     */
+    public function getRefreshToken()
+    {
+        return $this->refreshToken;
+    }
+
+    /**
+     * @param mixed $refreshToken
+     */
+    public function setRefreshToken($refreshToken)
+    {
+        $this->refreshToken = $refreshToken;
+    }
+
+
+    /**
      * Convert the object to its JSON representation.
      *
      * @param  int $options
@@ -129,6 +148,7 @@ class JwtDto implements Jsonable
            "header" => $this->getHeader(),
            "issuer" => $this->getIssuer(),
            "accessToken" => $this->getAccessToken(),
+           "refreshToken" => $this->getRefreshToken(),
            "type" => $this->getType(),
            "expiresAt" => $this->getExpiresAt()
        ]);

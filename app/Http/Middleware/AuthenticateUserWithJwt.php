@@ -25,7 +25,7 @@ class AuthenticateUserWithJwt
      */
     public function handle($request, Closure $next)
     {
-        return AuthService::validateJwt($request) ? $next($request) : ApiException::report(
+        return  AuthService::validateJwt($request) ? $next($request) : ApiException::report(
             "Invalid token", HttpStatus::HTTP_UNAUTHORIZED, $request->getRequestUri()
         );
     }
