@@ -15,9 +15,15 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->double('longitude');
-            $table->double('latitude');
+            $table->string('formatted_address')->nullable();
+            $table->string('country_code')->nullable();
+            $table->string('name')->nullable(false);
+            $table->double('longitude')->nullable();
+            $table->double('latitude')->nullable();
+            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

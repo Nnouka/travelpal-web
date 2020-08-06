@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\CustomObjects\Dtos\LocationRequestDTO;
 use App\CustomObjects\Dtos\RegisterUserDto;
 use App\CustomObjects\Dtos\UserDetailsResponseDto;
 use App\Services\AuthService;
@@ -31,7 +32,13 @@ class UserController extends Controller
         $userDto = new RegisterUserDto(
             $request->input('fullName'),
             $request->input('password'),
-            $request->input('email')
+            $request->input('email'),
+            $request->input('phone'),
+            $request->input('formattedAddress'),
+            $request->input('countryCode'),
+            $request->input('locationName'),
+            $request->input('longitude'),
+            $request->input('latitude')
         );
         return $this->userService->register($userDto);
     }
@@ -44,5 +51,23 @@ class UserController extends Controller
             $auth["email"],
             $auth["roles"]
         );
+    }
+
+    public function updateCurrentLocation(Request $request) {
+        $location = new LocationRequestDTO(
+            $request->input('formattedAddress'),
+            $request->input('countryCode'),
+            $request->input('longitude'),
+            $request->input('latitude'),
+            null,
+            $request->getRequestUri()
+        );
+
+        return $this->userService->updateCurrentLocation($location);
+    }
+
+
+    public function getCurrentLocation(Request $request) {
+        return $this->userService->getCurrentLocation($request->getRequestUri());
     }
 }

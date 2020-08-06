@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAddressComponentsTable extends Migration
+class AddIsDriverToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateAddressComponentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('address_components', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('long_name');
-            $table->string('short_name');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            //
+            $table->boolean('is_driver')->default(false);
         });
     }
 
@@ -28,6 +26,8 @@ class CreateAddressComponentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address_components');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }

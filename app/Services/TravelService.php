@@ -1,0 +1,106 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: edward
+ * Date: 8/6/20
+ * Time: 11:34 AM
+ */
+
+namespace App\Services;
+
+
+use App\CustomObjects\Dtos\NotificationsResponseDTO;
+use App\CustomObjects\Dtos\TravelIntentRequestDTO;
+use App\CustomObjects\HttpStatus;
+use App\Exceptions\ApiException;
+use App\Location;
+use App\Notifications\TravelIntent;
+use App\Travel;
+use App\User;
+use Illuminate\Http\Response;
+
+class TravelService
+{
+    const ORIGIN = "ORIGIN";
+    const DESTINATION = "DESTINATION";
+    public function registerTravelIntent(TravelIntentRequestDTO $travelIntent) {
+        // validate
+        $valid = $travelIntent->validate();
+        if ($valid !== null) {
+            return $valid;
+        }
+
+        // get user
+        $user = UserService::getCurrentAuthUser();
+        if ($user == null) {
+            return ApiException::report("User not found",
+                HttpStatus::HTTP_NOT_FOUND, $travelIntent->getEndpoint());
+        }
+        // get and save location
+        $origin = new Location(
+            [
+                "user_id" => $user->id,
+                "name" => self::ORIGIN,
+                "formatted_address" => $travelIntent->getOriginFormattedAddress(),
+                "longitude" => $travelIntent->getOriginLongitude(),
+                "latitude" => $travelIntent->getOriginLatitude(),
+            ]
+        );
+        $destination = new Location(
+            [
+                "user_id" => $user->id,
+                "name" => self::DESTINATION,
+                "formatted_address" => $travelIntent->getDestinationFormattedAddress(),
+                "longitude" => $travelIntent->getDestinationLongitude(),
+                "latitude" => $travelIntent->getDestinationLatitude(),
+            ]
+        );
+        $origin->save();
+        $origin = Location::last();
+        $destination->save();
+        $destination = Location::last();
+        // save travel
+        $travel = new Travel([
+            "origin_location_id" => $origin->id,
+            "destination_location_id" => $destination->id,
+            "distance" => $travelIntent->getDistance(),
+            "duration" => $travelIntent->getDuration(),
+            "duration_text" => $travelIntent->getDurationText()
+        ]);
+        $user->travels()->save($travel);
+        // get drivers
+        $nearByDrivers = $user->nearDrivers($origin->longitude, $origin->latitude, $user->id);
+        // notify drivers
+        foreach ($nearByDrivers as $driver) {
+            $notifying = $driver["driver"];
+            $notifying->notify(new TravelIntent($travelIntent));
+        }
+        // return list of drivers notified
+
+        return new Response('', 204);
+    }
+
+    public function getUnreadTravelIntentNotifications($endpoint) {
+         $TYPE = "App\Notifications\TravelIntent";
+         $Intent = "TravelIntent";
+        $user = UserService::getCurrentAuthUser();
+        if ($user == null) {
+            return ApiException::report("User not found",
+                HttpStatus::HTTP_NOT_FOUND, $endpoint);
+        }
+
+        $notifications = new NotificationsResponseDTO();
+        foreach ($user->unreadNotifications as $notification) {
+            if ($notification->type == $TYPE) $notifications->addNotification(["type" => $Intent, "data" => $notification->data]);
+        }
+
+        return $notifications;
+
+    }
+
+    public static function nearby() {
+        $user = new User();
+        return $user->nearDrivers(2.1211, 13.123, 5);
+    }
+
+}

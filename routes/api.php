@@ -18,13 +18,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/test', function () {
-    $a = [1, 2, 3, 4, 5];
+    /*$a = [1, 2, 3, 4, 5];
     $id = "pefcom-location002";
     $secret = "12345678";
     $result = \App\Utils\Base64::encode($id.":".$secret);
     $auth = \App\Services\AuthService::getClaims();
-    dd($result, $auth);
-})->middleware('client.auth')->middleware('has_role');
+    dd($result, $auth);*/
+    $nearby = \App\Services\TravelService::nearby();
+    dd($nearby);
+})/*->middleware('client.auth')->middleware('has_role')*/;
 //  public client routes
 
 Route::prefix('public/client')->group(function () {
@@ -106,4 +108,22 @@ Route::prefix('protected/user')->middleware('client.auth')->group(function () {
         'as' => 'user.details'
     ])->middleware('has_role:USER');
 
+    Route::post('/update/location', [
+        'uses' => 'UserController@updateCurrentLocation',
+        'as' => 'user.current.location.update'
+    ])->middleware('has_role:USER');
+
+    Route::get('/location', [
+        'uses' => 'UserController@getCurrentLocation',
+        'as' => 'user.current.location'
+    ])->middleware('has_role:USER');
+
+    Route::post('/intent/travel', [
+        'uses' => 'TravelController@registerTravelIntent',
+        'as' => 'user.current.location'
+    ])->middleware('has_role:USER');
+
+    Route::get('/notifications/travel/intents', [
+        'uses' => 'TravelController@getUnreadTravelIntentNotifications'
+    ])->middleware('has_role:USER');
 });
