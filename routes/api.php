@@ -126,4 +126,13 @@ Route::prefix('protected/user')->middleware('client.auth')->group(function () {
     Route::get('/notifications/travel/intents', [
         'uses' => 'TravelController@getUnreadTravelIntentNotifications'
     ])->middleware('has_role:USER');
+
+    Route::post('/notifications/travel/intents/mark/read', [
+        'uses' => 'TravelController@markUnreadTravelIntentNotificationAsRead'
+    ])->middleware('has_role:USER');
+
+    Route::post('/notifications/travel/intents/mark/all/read', [
+        'uses' => 'TravelController@markAllUnreadTravelIntentNotificationAsRead'
+    ])->middleware('has_role:USER');
+
 });

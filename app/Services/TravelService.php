@@ -9,6 +9,7 @@
 namespace App\Services;
 
 
+use App\CustomObjects\Dtos\NotificationIntentIdDTO;
 use App\CustomObjects\Dtos\NotificationsResponseDTO;
 use App\CustomObjects\Dtos\TravelIntentRequestDTO;
 use App\CustomObjects\HttpStatus;
@@ -91,11 +92,38 @@ class TravelService
 
         $notifications = new NotificationsResponseDTO();
         foreach ($user->unreadNotifications as $notification) {
-            if ($notification->type == $TYPE) $notifications->addNotification(["type" => $Intent, "data" => $notification->data]);
+            if ($notification->type == $TYPE) $notifications->addNotification(
+                [
+                    "type" => $Intent,
+                    "data" => $notification->data,
+                    "id" => $notification->id
+                ]);
         }
 
         return $notifications;
 
+    }
+
+    public function markTravelIntentNotificationAsRead(NotificationIntentIdDTO $idDTO) {
+        // validate
+        $valid = $idDTO->validate();
+        if ($valid !== null) {
+            return $valid;
+        }
+        // mark as read
+        User::markNotificationAsRead($idDTO->getId());
+
+        return new Response('', 204);
+    }
+
+    public function markAllTravelIntentNotificationsAsRead($endpoint) {
+        $user = UserService::getCurrentAuthUser();
+        if ($user == null) {
+            return ApiException::report("User not found",
+                HttpStatus::HTTP_NOT_FOUND, $endpoint);
+        }
+        User::markAllTravelIntentNotificationsAsRead($user->id);
+        return new Response('', 204);
     }
 
     public static function nearby() {

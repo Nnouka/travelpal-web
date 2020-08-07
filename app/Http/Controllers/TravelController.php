@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CustomObjects\Dtos\NotificationIntentIdDTO;
 use App\CustomObjects\Dtos\TravelIntentRequestDTO;
 use App\Services\TravelService;
 use Illuminate\Http\Request;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 class TravelController extends Controller
 {
     //
+
     private $travelService;
 
     /**
@@ -39,6 +41,19 @@ class TravelController extends Controller
 
     public function getUnreadTravelIntentNotifications(Request $request) {
         return $this->travelService->getUnreadTravelIntentNotifications($request->getRequestUri());
+    }
+
+    public function markUnreadTravelIntentNotificationAsRead(Request $request) {
+        return $this->travelService->markTravelIntentNotificationAsRead(
+            new NotificationIntentIdDTO(
+                $request->input('id'),
+                $request->getRequestUri()
+            )
+        );
+    }
+
+    public function markAllUnreadTravelIntentNotificationAsRead(Request $request){
+        return $this->travelService->markAllTravelIntentNotificationsAsRead($request->getRequestUri());
     }
 
 
