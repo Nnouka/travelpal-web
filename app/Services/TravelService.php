@@ -18,6 +18,7 @@ use App\Location;
 use App\Notifications\TravelIntent;
 use App\Travel;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Response;
 
 class TravelService
@@ -57,16 +58,16 @@ class TravelService
             ]
         );
         $origin->save();
-        $origin = Location::last();
         $destination->save();
-        $destination = Location::last();
         // save travel
         $travel = new Travel([
             "origin_location_id" => $origin->id,
             "destination_location_id" => $destination->id,
             "distance" => $travelIntent->getDistance(),
             "duration" => $travelIntent->getDuration(),
-            "duration_text" => $travelIntent->getDurationText()
+            "duration_text" => $travelIntent->getDurationText(),
+            "price" => $travelIntent->getPrice(),
+            "notified_at" => Carbon::now()
         ]);
         $user->travels()->save($travel);
         // get drivers

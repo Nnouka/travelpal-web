@@ -40,7 +40,7 @@ class TravelIntentRequestDTO
      */
     public function __construct($originFormattedAddress, $originLongitude, $originLatitude,
                                 $destinationFormattedAddress, $destinationLongitude, $destinationLatitude,
-                                $distance, $duration, $durationText, $endpoint = "/")
+                                $distance, $duration, $durationText, $price = null, $endpoint = "/")
     {
         $this->originFormattedAddress = $originFormattedAddress;
         $this->originLongitude = $originLongitude;
@@ -51,6 +51,7 @@ class TravelIntentRequestDTO
         $this->distance = $distance;
         $this->duration = $duration;
         $this->durationText = $durationText;
+        $this->price = $price;
         $this->endpoint = $endpoint;
     }
 
@@ -197,6 +198,23 @@ class TravelIntentRequestDTO
     {
         $this->durationText = $durationText;
     }
+
+    /**
+     * @return null
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param null $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
 
     /**
      * @return string

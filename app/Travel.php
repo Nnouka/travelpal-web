@@ -9,6 +9,12 @@ class Travel extends Model
     //
     protected $guarded = ['id'];
 
+    protected $dates = [
+        'notified_at',
+        'started_at',
+        'finished_at'
+    ];
+
     public function user() {
         return $this->belongsTo('App\User');
     }

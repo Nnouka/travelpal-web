@@ -33,6 +33,7 @@ class TravelController extends Controller
             $request->input('distance'),
             $request->input('duration'),
             $request->input('durationText'),
+            $request->input('price'),
             $request->getRequestUri()
         );
 
