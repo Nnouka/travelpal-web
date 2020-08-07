@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3d0a4bf-550a-428f-b11a-b12910d10491" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2020_08_07_094331_add_statuses_timestamps_to_travels_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2020_08_07_100216_add_price_to_travels_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/CustomObjects/Dtos/TravelIntentRequestDTO.php" afterPath="$PROJECT_DIR$/app/CustomObjects/Dtos/TravelIntentRequestDTO.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TravelController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TravelController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/TravelService.php" afterPath="$PROJECT_DIR$/app/Services/TravelService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Travel.php" afterPath="$PROJECT_DIR$/app/Travel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.php" afterPath="$PROJECT_DIR$/config/database.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,11 +35,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TravelService.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TravelService.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Services/TravelService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-680">
+            <state relative-caret-position="-878">
               <caret line="68" column="49" lean-forward="false" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/database.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -84,7 +89,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="php artisan migrate" />
       <command text="php artisan make:migration add_phone_to_users --table=users" />
       <command text="php artisan migrate" />
       <command text="php artisan serve" />
@@ -109,6 +113,7 @@
       <command text="php artisan migrate:rollback" />
       <command text="php artisan migrate" />
       <command text="php artisan serve" />
+      <command text="php artisan migrate" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -138,7 +143,6 @@
         <option value="$PROJECT_DIR$/app/Role.php" />
         <option value="$PROJECT_DIR$/app/CustomObjects/Dtos/UserResponseDto.php" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/app/Utils/Jwt.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/HasRole.php" />
@@ -174,6 +178,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/TravelController.php" />
         <option value="$PROJECT_DIR$/app/CustomObjects/Dtos/TravelIntentRequestDTO.php" />
         <option value="$PROJECT_DIR$/app/Services/TravelService.php" />
+        <option value="$PROJECT_DIR$/config/database.php" />
       </list>
     </option>
   </component>
@@ -277,87 +282,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locationfinder_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locationfinder_web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locationfinder_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locationfinder_web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locationfinder_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locationfinder_web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CustomObjects" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locationfinder_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locationfinder_web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CustomObjects" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dtos" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -479,7 +404,7 @@
       <workItem from="1596085493578" duration="1365000" />
       <workItem from="1596644472274" duration="378000" />
       <workItem from="1596650564587" duration="26458000" />
-      <workItem from="1596779323567" duration="7694000" />
+      <workItem from="1596779323567" duration="8089000" />
     </task>
     <task id="LOCAL-00001" summary="update readme">
       <created>1582290085110</created>
@@ -642,20 +567,28 @@
       <option name="project" value="LOCAL" />
       <updated>1596792139412</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Add Travel&#10;statuses timestamps, notified_at, started_at, finished_at&#10;price">
+      <created>1596795351863</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1596795351863</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121617000" />
+    <option name="totallyTimeSpent" value="122012000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -694,7 +627,8 @@
     <MESSAGE value="Add Refresh token functionality" />
     <MESSAGE value="Add Travel intent notifications" />
     <MESSAGE value="Add notification&#10;Mark as Read&#10;Mark all as Read" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add notification&#10;Mark as Read&#10;Mark all as Read" />
+    <MESSAGE value="Add Travel&#10;statuses timestamps, notified_at, started_at, finished_at&#10;price" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Travel&#10;statuses timestamps, notified_at, started_at, finished_at&#10;price" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -994,14 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="105" column="27" lean-forward="true" selection-start-line="105" selection-start-column="27" selection-end-line="105" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_08_06_092323_create_travels_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1076,8 +1002,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/TravelService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-680">
+        <state relative-caret-position="-878">
           <caret line="68" column="49" lean-forward="false" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
           <folding />
         </state>
       </provider>
