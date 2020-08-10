@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3d0a4bf-550a-428f-b11a-b12910d10491" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/CustomObjects/Dtos/DriversDTO.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/CustomObjects/Dtos/LatLngDTO.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TravelController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TravelController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/TravelService.php" afterPath="$PROJECT_DIR$/app/Services/TravelService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/UserService.php" afterPath="$PROJECT_DIR$/app/Services/UserService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +18,8 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="120" column="38" lean-forward="false" selection-start-line="120" selection-start-column="38" selection-end-line="120" selection-end-column="38" />
+            <state relative-caret-position="301">
+              <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -448,7 +442,7 @@
       <workItem from="1596650564587" duration="26458000" />
       <workItem from="1596779323567" duration="9690000" />
       <workItem from="1596798453131" duration="73000" />
-      <workItem from="1597040515551" duration="1381000" />
+      <workItem from="1597040515551" duration="1580000" />
     </task>
     <task id="LOCAL-00001" summary="update readme">
       <created>1582290085110</created>
@@ -625,11 +619,18 @@
       <option name="project" value="LOCAL" />
       <updated>1596795779436</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="add near by drivers endpoint">
+      <created>1597041937083</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1597041937083</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125067000" />
+    <option name="totallyTimeSpent" value="125266000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -680,7 +681,8 @@
     <MESSAGE value="Add notification&#10;Mark as Read&#10;Mark all as Read" />
     <MESSAGE value="Add Travel&#10;statuses timestamps, notified_at, started_at, finished_at&#10;price" />
     <MESSAGE value="Add JAWS DB credentials for dev hosting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add JAWS DB credentials for dev hosting" />
+    <MESSAGE value="add near by drivers endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="add near by drivers endpoint" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -878,6 +880,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="43">
           <caret line="77" column="9" lean-forward="true" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1050,8 +1053,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="120" column="38" lean-forward="false" selection-start-line="120" selection-start-column="38" selection-end-line="120" selection-end-column="38" />
+        <state relative-caret-position="301">
+          <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
           <folding />
         </state>
       </provider>
