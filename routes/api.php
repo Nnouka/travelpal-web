@@ -118,6 +118,11 @@ Route::prefix('protected/user')->middleware('client.auth')->group(function () {
         'as' => 'user.current.location'
     ])->middleware('has_role:USER');
 
+    Route::get('/location/near/drivers', [
+        'uses' => 'TravelController@getNearByDrivers',
+        'as' => 'location.near.drivers'
+    ])->middleware('has_role:USER');
+
     Route::post('/intent/travel', [
         'uses' => 'TravelController@registerTravelIntent',
         'as' => 'user.current.location'

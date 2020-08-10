@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CustomObjects\Dtos\LatLngDTO;
 use App\CustomObjects\Dtos\NotificationIntentIdDTO;
 use App\CustomObjects\Dtos\TravelIntentRequestDTO;
 use App\Services\TravelService;
@@ -55,6 +56,16 @@ class TravelController extends Controller
 
     public function markAllUnreadTravelIntentNotificationAsRead(Request $request){
         return $this->travelService->markAllTravelIntentNotificationsAsRead($request->getRequestUri());
+    }
+
+    public function getNearByDrivers(Request $request) {
+        return $this->travelService->getNearByDrivers(
+            new LatLngDTO(
+                $request->input('lat'),
+                $request->input('lng'),
+                $request->getRequestUri()
+            )
+        );
     }
 
 

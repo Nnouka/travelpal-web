@@ -35,7 +35,7 @@
 ## See default client details
 Uri: GET
 
-    'api/protected/client/details
+    api/protected/client/details
 
 Expected Request Header:
 

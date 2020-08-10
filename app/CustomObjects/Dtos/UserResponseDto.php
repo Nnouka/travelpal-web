@@ -15,6 +15,7 @@ class UserResponseDto implements Jsonable
 {
     private $name;
     private $email;
+    private $phone;
     private $updatedAt;
     private $userId;
     private $roles;
@@ -27,10 +28,11 @@ class UserResponseDto implements Jsonable
      * @param $userId
      * @param $roles
      */
-    public function __construct($name, $email, $updatedAt, $userId, $roles)
+    public function __construct($name, $email, $updatedAt, $userId, $roles, $phone = "")
     {
         $this->name = $name;
         $this->email = $email;
+        $this->phone = $phone;
         $this->updatedAt = $updatedAt;
         $this->userId = $userId;
         $this->roles = $roles;
@@ -116,6 +118,23 @@ class UserResponseDto implements Jsonable
         $this->roles = $roles;
     }
 
+    /**
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param string $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
+
+
 
     /**
      * Convert the object to its JSON representation.
@@ -129,6 +148,7 @@ class UserResponseDto implements Jsonable
         return json_encode([
             "name" => $this->getName(),
             "email" => $this->getEmail(),
+            "phone" => $this->getPhone(),
             "updatedAt" => $this->getUpdatedAt(),
             "userId" => $this->getUserId(),
             "roles" => $this->getRoles()

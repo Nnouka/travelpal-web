@@ -9,6 +9,8 @@
 namespace App\Services;
 
 
+use App\CustomObjects\Dtos\DriversDTO;
+use App\CustomObjects\Dtos\LatLngDTO;
 use App\CustomObjects\Dtos\NotificationIntentIdDTO;
 use App\CustomObjects\Dtos\NotificationsResponseDTO;
 use App\CustomObjects\Dtos\TravelIntentRequestDTO;
@@ -125,6 +127,17 @@ class TravelService
         }
         User::markAllTravelIntentNotificationsAsRead($user->id);
         return new Response('', 204);
+    }
+
+    public function getNearByDrivers(LatLngDTO $latLng) {
+        $user = UserService::getCurrentAuthUser();
+        if ($user == null) {
+            return ApiException::report("User not found",
+                HttpStatus::HTTP_NOT_FOUND, $latLng->getEndpoint());
+        }
+
+        $drivers = $user->nearDrivers($latLng->getLng(), $latLng->getLat(), $user->id);
+        return new DriversDTO($drivers);
     }
 
     public static function nearby() {

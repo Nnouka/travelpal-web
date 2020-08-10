@@ -68,7 +68,8 @@ class UserService
             $user->email,
             $user->updated_at,
             $user->id,
-            $roles
+            $roles,
+            $user->phone
         );
     }
 
