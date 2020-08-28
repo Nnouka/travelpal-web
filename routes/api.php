@@ -82,6 +82,15 @@ Route::prefix('public/user')->middleware('client.auth')->group(function () {
 
 });
 
+Route::prefix('public/app')->middleware('client.auth')->group(function () {
+
+    Route::post('register', [
+        'uses' => 'UserController@registerApp',
+        'as' => 'app.register'
+    ]);
+
+});
+
 Route::prefix('protected/token')->middleware('client.auth')->group(function () {
 
     Route::get('test', [

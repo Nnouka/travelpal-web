@@ -9,6 +9,7 @@
 namespace App\Services;
 
 
+use App\CustomObjects\Dtos\AppInstanceDTO;
 use App\CustomObjects\Dtos\LocationDTO;
 use App\CustomObjects\Dtos\LocationRequestDTO;
 use App\CustomObjects\Dtos\RegisterUserDto;
@@ -39,11 +40,7 @@ class UserService
             "password" => $userDto->getEncryptedPassword(),
             "name" => $userDto->getFullName()
         ]);
-        $role = Role::where('name', 'USER')->get()->first();
-
-        if ($role !== null && $role !== []) {
-            $user->roles()->attach($role->id);
-        }
+        $this->attachUserRole($user);
 
         // location
         $location = new Location(
@@ -73,6 +70,56 @@ class UserService
         );
     }
 
+    private function attachUserRole($user) {
+        $role = Role::where('name', 'USER')->get()->first();
+
+        if ($role !== null && $role !== []) {
+            $user->roles()->attach($role->id);
+        } else {
+            $role = Role::create([
+                'name' => 'USER'
+            ]);
+            $user->roles()->attach($role->id);
+        }
+    }
+
+    /**
+     * @return UserResponseDto
+     */
+    public function registerApp() {
+        $appId = uniqid();
+        $user = User::create([
+            "email" => $appId,
+            "password" => bcrypt($appId),
+            "name" => $appId
+        ]);
+
+        $this->attachUserRole($user);
+
+        // location
+        $location = new Location(
+            [
+                "name" => "CURRENT"
+            ]
+        );
+
+        $user->locations()->save($location);
+        // prepare roles array
+        $roles = [];
+        foreach ($user->roles()->get() as $key => $role) {
+            $roles[$key] = $role->name;
+        }
+
+        return new UserResponseDto(
+            $user->name,
+            $user->email,
+            $user->updated_at,
+            $user->id,
+            $roles,
+            $user->phone
+        );
+
+    }
     public function updateCurrentLocation(LocationRequestDTO $location) {
         $valid = $location->validate();
         if ($valid !== null) {

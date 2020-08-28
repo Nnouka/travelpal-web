@@ -81,7 +81,7 @@ class TravelService
         }
         // return list of drivers notified
 
-        return new Response('', 204);
+        return new Response(true, 204);
     }
 
     public function getUnreadTravelIntentNotifications($endpoint) {

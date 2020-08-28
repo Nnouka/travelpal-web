@@ -43,6 +43,11 @@ class UserController extends Controller
         return $this->userService->register($userDto);
     }
 
+    public function registerApp(Request $request) {
+        return $this->userService->registerApp();
+    }
+
+
     public function getDetails(Request $request) {
         $auth = AuthService::getClaims();
         return new UserDetailsResponseDto(

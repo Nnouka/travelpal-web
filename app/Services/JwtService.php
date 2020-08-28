@@ -68,13 +68,10 @@ class JwtService
 
     public function generate($email, $password, $endpoint = '/') {
         // validation
-        $validate = array_unique(array_merge(
-            StringValidator::notBlank([
-                'password' => $password,
-                'email' => $email
-            ]),
-            StringValidator::email(["email" => $email])
-        ));
+        $validate = StringValidator::notBlank([
+            'password' => $password,
+            'email' => $email
+        ]);
         if ($validate != []) return ApiException::reportValidationError(
             $validate, HttpStatus::HTTP_BAD_REQUEST, $endpoint);
         $client = AuthService::get();
